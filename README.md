@@ -59,7 +59,7 @@ Array list can be managed in the file Balance/Bundle/RabbitMQBundle/RabbitMQ/Nor
 
 Installation
 ============
- 1. Put the code into "scr" folder Install 
+ 1. Put the code into "scr" folder 
  2. Add to composer.json "php-amqplib/rabbitmq-bundle" and run composer update.
  3. Enable the bundle in the app/AppKernel.php file:
 ```
