@@ -1,0 +1,19 @@
+parameters:
+    rabbitmq_serializer.normalizer.flat.product.class: Balance\Bundle\RabbitMQBundle\RabbitMQ\Normalizer\ProductNormalizer
+    rabbitmq_serializer.normalizer.flat.product_value.class: Balance\Bundle\RabbitMQBundle\RabbitMQ\Normalizer\ProductValueNormalizer
+services:
+    rabbitmq_serializer.normalizer.flat.product:
+        public: false
+        class: %rabbitmq_serializer.normalizer.flat.product.class%
+        arguments:
+            - '@pim_catalog.filter.chained'
+        tags:
+            - { name: pim_serializer.normalizer, priority: 90 }
+
+    rabbitmq_serializer.normalizer.flat.product_value:
+        public: false
+        class: %rabbitmq_serializer.normalizer.flat.product_value.class%
+        arguments:
+            - '@pim_catalog.localization.localizer.registry'
+        tags:
+            - { name: pim_serializer.normalizer, priority: 90 }

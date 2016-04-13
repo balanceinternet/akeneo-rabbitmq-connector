@@ -1,0 +1,13 @@
+parameters:
+    rabbit_connector.doctrine.query.filter.completeness.class: Balance\Bundle\RabbitMQBundle\Doctrine\MongoDBODM\Filter\CompletenessFilter
+    rabbit_connector.doctrine.query.filter.date_time.class:    Balance\Bundle\RabbitMQBundle\Doctrine\MongoDBODM\Filter\DateTimeFilter
+
+services:
+    rabbit_connector.doctrine.query.filter.completeness:
+        class: %rabbit_connector.doctrine.query.filter.completeness.class%
+        arguments:
+            - ['completeness_for_export']
+            - ['<', '<=', '=', '>=', '>']
+            - '@pim_catalog.manager.channel'
+        tags:
+            - { name: 'pim_catalog.doctrine.query.filter', priority: 30 }

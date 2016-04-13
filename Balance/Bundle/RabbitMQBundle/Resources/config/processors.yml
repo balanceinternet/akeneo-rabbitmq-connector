@@ -1,0 +1,12 @@
+parameters:
+    rabbit_connector.processor.product_to_flat_array.class: Balance\Bundle\RabbitMQBundle\Processor\ProductToFlatArrayProcessor
+services:
+    rabbit_connector.processor.product_to_flat_array:
+        class: %rabbit_connector.processor.product_to_flat_array.class%
+        arguments:
+            - '@pim_serializer'
+            - '@pim_catalog.manager.channel'
+            - '@pim_catalog.builder.product'
+            - ['pim_catalog_file', 'pim_catalog_image']
+            - %pim_catalog.localization.decimal_separators%
+            - %pim_catalog.localization.date_formats%

@@ -1,0 +1,15 @@
+connector:
+    name: Balance Internet RabbitMQ
+    jobs:
+        rabbit_rabbitmq_product_export:
+            title: Products Export RabbitMQ
+            type:  export
+            steps:
+                export:
+                    title:     pim_base_connector.jobs.rabbitmq_product_export.export.title
+                    services:
+                        reader:    rabbit_connector.reader.product
+                        processor: rabbit_connector.processor.product_to_flat_array
+                        writer:    rabbit_connector.writer.file.rabbitmq_product
+                    parameters:
+                        batch_size: 10

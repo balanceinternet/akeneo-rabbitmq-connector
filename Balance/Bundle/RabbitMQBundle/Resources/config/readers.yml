@@ -1,0 +1,15 @@
+parameters:
+    rabbit_connector.reader.product.class: Balance\Bundle\RabbitMQBundle\Reader\ProductReader
+
+services:
+    rabbit_connector.reader.product:
+        class: %rabbit_connector.reader.product.class%
+        arguments:
+            - '@pim_catalog.query.product_query_builder_factory'
+            - '@pim_catalog.manager.channel'
+            - '@pim_catalog.manager.completeness'
+            - '@pim_transform.converter.metric'
+            - '@doctrine.orm.default_entity_manager'
+            - '@akeneo_storage_utils.doctrine.object_detacher'
+            - true
+            - %akeneo_batch.entity.job_execution.class%
