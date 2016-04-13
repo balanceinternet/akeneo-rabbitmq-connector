@@ -59,8 +59,9 @@ Array list can be managed in the file Balance/Bundle/RabbitMQBundle/RabbitMQ/Nor
 
 Installation
 ============
-
- 1. Enable the bundle in the app/AppKernel.php file:
+ 1. Put the code into "scr" folder Install 
+ 2. Add to composer.json "php-amqplib/rabbitmq-bundle" and run composer update.
+ 3. Enable the bundle in the app/AppKernel.php file:
 ```
     public function registerBundles()
     {
@@ -70,11 +71,11 @@ Installation
         return $bundles;
     }
 ```
-2. Clear cache
+4. Clear cache
 
-3. Go to "Export profiles" and create a new export using "Products Export RabbitMQ" connector.
+5. Go to "Export profiles" and create a new export using "Products Export RabbitMQ" connector.
 
-4. Configure the export profile, the variables responsible for RabbitMQ connection are:
+6. Configure the export profile, the variables responsible for RabbitMQ connection are:
  
  
  * AMQP Host
