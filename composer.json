@@ -1,0 +1,7 @@
+{
+    "name": "balance/akeneo-rabbitmq-connector",
+    "description": "Prototype bundle for demonstrating how Akeneo PIM could communicate with RabbitMQ",
+    "require": {
+        "php": ">=5.4.4"
+    }
+}
